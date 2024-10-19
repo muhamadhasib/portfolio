@@ -2105,3 +2105,31 @@ body.light-mode #theme-toggle {
 .cart-icon:hover {
   transform: translateY(-2px);
 }
+
+/* Remove the general hover effect for the contact info */
+.contact-info p {
+    transition: none;
+}
+
+.contact-info p:hover {
+    transform: none;
+}
+
+/* Keep the hover effect for specific contact links */
+.contact-info-link p {
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-info-link p:hover {
+    transform: translateX(5px);
+}
+
+/* Ensure the icons keep their color on hover */
+.contact-info-link i {
+    color: var(--primary-color);
+    transition: none;
+}
+
+.contact-info-link p:hover i {
+    color: var(--primary-color);
+}
