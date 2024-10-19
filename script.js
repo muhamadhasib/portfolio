@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
-    const smoothScrollTargets = document.querySelectorAll('.nav-link, .contact-me-btn');
+    const smoothScrollTargets = document.querySelectorAll('a[href^="#"]:not([href="#"])');
     const contactForm = document.getElementById('contact-form');
     const skillBars = document.querySelectorAll('.skill-progress');
     const downloadCVBtn = document.getElementById('downloadCV');
@@ -69,24 +69,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Smooth Scrolling Function
     const smoothScroll = function(e) {
-        const href = this.getAttribute('href');
-
-        if (href.includes('.html')) {
-            return; // Let the default behavior handle page navigation
-        }
-
         e.preventDefault();
-        const targetId = href.replace(/^.*#/, '');
+        let targetId = this.getAttribute('href');
+        
+        // Check if the href is a full URL (for blog links)
+        if (targetId.includes('.html')) {
+            window.location.href = targetId;
+            return;
+        }
+        
+        targetId = targetId.replace(/^.*#/, '');
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
             targetElement.scrollIntoView({
-                behavior: 'smooth'
+                behavior: 'smooth',
+                block: 'start'
             });
-        } else if (href.startsWith('#') && !window.location.pathname.includes('index.html')) {
-            window.location.href = `index.html${href}`;
         }
     };
+
+    // Easing function
+    function easeInOutCubic(t, b, c, d) {
+        t /= d/2;
+        if (t < 1) return c/2*t*t*t + b;
+        t -= 2;
+        return c/2*(t*t*t + 2) + b;
+    }
 
     // Skill Bars Animation
     const animateSkillBars = () => {
@@ -298,24 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const savedTheme = localStorage.getItem('theme') || 'dark';
         setTheme(savedTheme);
     })();
-
-    // Fix for contact me button in home screen and navigation menu
-    const contactMeButtons = document.querySelectorAll('.home-contact-me-btn, .nav-link[data-section="contact"]');
-    const contactSection = document.querySelector('#contact');
-
-    if (contactMeButtons.length && contactSection) {
-        contactMeButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                contactSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-    } else {
-        console.error('Contact me button or contact section not found. Make sure the elements exist in the DOM.');
-    }
 
     // Cart icon functionality
     const cartIcon = document.getElementById('cart-icon');
