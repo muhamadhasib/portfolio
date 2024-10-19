@@ -111,7 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Circle Animation
     const createCircles = () => {
         const container = document.getElementById('circle-animation-container');
-        if (!container) return; // Exit if the container doesn't exist
+        if (!container) return;
+        
+        // Clear existing circles
+        container.innerHTML = '';
         
         const circleCount = 20;
 
@@ -216,8 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactSection.scrollIntoView({
                     behavior: 'smooth'
                 });
+                history.pushState(null, '', 'index.html#contact');
             } else {
-                console.error('Contact section not found. Make sure the #contact element exists.');
+                window.location.href = 'index.html#contact';
             }
         });
     }
@@ -260,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Back to top functionality
     if (backToTopButton && homeSection) {
-        // Show/hide the button based on scroll position
         window.addEventListener('scroll', throttle(() => {
             if (window.pageYOffset > 500) {
                 backToTopButton.classList.add('visible');
@@ -269,7 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 300));
 
-        // Scroll to home section when the button is clicked
         backToTopButton.addEventListener('click', (e) => {
             e.preventDefault();
             homeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -298,7 +300,6 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(skillsSection);
         }
     } else {
-        // Fallback for browsers that don't support IntersectionObserver
         animateSkillBars();
     }
 
@@ -314,9 +315,52 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cartIcon) {
         addEvent(cartIcon, 'click', (e) => {
             e.preventDefault();
-            alert('Cart functionality coming soon!'); // Placeholder for cart functionality
+            alert('Cart functionality coming soon!'); 
         });
     }
+
+    // Add this inside your DOMContentLoaded event listener
+    const projectCloseBtn = document.querySelector('.project-close-btn');
+
+    if (projectCloseBtn) {
+        addEvent(projectCloseBtn, 'click', (e) => {
+            e.preventDefault();
+            const referrer = document.referrer;
+            if (referrer.includes('index.html') || referrer === '') {
+                window.location.href = 'index.html#portfolio';
+            } else {
+                window.history.back();
+            }
+        });
+    }
+
+    // Add this inside your DOMContentLoaded event listener
+    const closeBtn = document.querySelector('.blog-close-btn');
+
+    if (closeBtn) {
+        addEvent(closeBtn, 'click', (e) => {
+            e.preventDefault();
+            const currentPage = window.location.pathname.split('/').pop();
+            
+            // Check if it's a project page
+            if (currentPage.startsWith('project')) {
+                window.location.href = 'index.html#portfolio';
+            } else {
+                // For blog posts, keep the existing behavior
+                const referrer = document.referrer;
+                if (referrer.includes('blog.html')) {
+                    window.location.href = 'blog.html#blog';
+                } else {
+                    window.location.href = 'index.html#blog';
+                }
+            }
+        });
+    }
+
+    window.addEventListener('load', createCircles);
+    window.addEventListener('resize', throttle(createCircles, 200));
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('load', handleHashChange);
 });
 
 // Apply theme on page load (outside of DOMContentLoaded)
@@ -329,3 +373,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.setAttribute('data-theme', 'dark');
     }
 })();
+
+// Add a new function to handle smooth scrolling for hash links
+function handleHashChange() {
+    const hash = window.location.hash;
+    if (hash) {
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+            setTimeout(() => {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }, 0);
+        }
+    }
+}

@@ -511,6 +511,57 @@ section {
   flex-direction: column;
   height: 100%;
 }
+/* Button Styles for View Project */
+.view-project-button {
+  display: inline-block;
+  margin-top: auto;
+  padding: 10px 20px;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--box-shadow);
+  font-size: 0.9em;
+}
+
+.view-project-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+}
+
+/* Responsive styles for portfolio section */
+@media (max-width: 1024px) {
+  .portfolio-column {
+    width: calc(50% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  #portfolio {
+    padding: 40px 20px;
+  }
+
+  .portfolio-column {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #portfolio {
+    padding: 60px 20px 0px;
+  }
+
+  .portfolio-title {
+    font-size: 1.1em;
+  }
+
+  .view-project-button {
+    font-size: 0.9em;
+  }
+}
 
 /* Button Styles for View Project */
 .view-project-button {
