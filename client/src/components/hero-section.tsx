@@ -140,9 +140,9 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Bio - Constrained to Name Heading Width */}
+            {/* Bio - Justified for All Devices */}
             <motion.p
-              className="responsive-bio text-gray-600 dark:text-gray-400 leading-relaxed bio-full-width bio-text-isolation"
+              className="responsive-bio text-gray-600 dark:text-gray-400 bio-full-width bio-text-isolation"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}

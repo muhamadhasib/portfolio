@@ -322,49 +322,75 @@
     text-align: left;
   }
 
-  /* Bio text constrained to exact name heading width */
+  /* Bio text responsive and justified for all devices */
   .bio-full-width {
     max-width: 100%;
-    width: auto;
+    width: 100%;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    line-height: 1.6;
   }
 
-  /* On large screens, bio exactly matches name heading width */
-  @media (min-width: 1024px) {
+  /* On extra large screens (desktop) */
+  @media (min-width: 1200px) {
     .bio-full-width {
-      text-align: left;
-      hyphens: none;
-      -webkit-hyphens: none;
-      word-break: normal;
-      overflow-wrap: normal;
-      max-width: 42ch;
-      width: 42ch;
-      line-height: 1.6;
-      word-spacing: normal;
-    }
-  }
-
-  /* On medium screens, maintain reasonable width */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .bio-full-width {
-      max-width: 600px;
-      text-align: left;
-      word-break: normal;
-      overflow-wrap: normal;
-      hyphens: none;
-      -webkit-hyphens: none;
-    }
-  }
-
-  /* On mobile, center and justify for readability */
-  @media (max-width: 767px) {
-    .bio-full-width {
+      max-width: 65ch;
       text-align: justify;
       text-justify: inter-word;
-      max-width: 100%;
-      word-break: normal;
-      overflow-wrap: break-word;
       hyphens: auto;
       -webkit-hyphens: auto;
+      line-height: 1.7;
+    }
+  }
+
+  /* On large screens (laptop) */
+  @media (min-width: 1024px) and (max-width: 1199px) {
+    .bio-full-width {
+      max-width: 60ch;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      line-height: 1.6;
+    }
+  }
+
+  /* On medium screens (tablet) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .bio-full-width {
+      max-width: 55ch;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      line-height: 1.6;
+    }
+  }
+
+  /* On small screens (mobile landscape) */
+  @media (min-width: 576px) and (max-width: 767px) {
+    .bio-full-width {
+      max-width: 100%;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      line-height: 1.5;
+    }
+  }
+
+  /* On extra small screens (mobile portrait) */
+  @media (max-width: 575px) {
+    .bio-full-width {
+      max-width: 100%;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      line-height: 1.5;
+      word-spacing: 0.1em;
     }
   }
 
