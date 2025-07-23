@@ -322,13 +322,13 @@
     text-align: left;
   }
 
-  /* Bio text constrained to match name heading width */
+  /* Bio text constrained to exact name heading width */
   .bio-full-width {
     max-width: 100%;
     width: auto;
   }
 
-  /* On large screens, bio matches name heading width with natural text flow */
+  /* On large screens, bio exactly matches name heading width */
   @media (min-width: 1024px) {
     .bio-full-width {
       text-align: left;
@@ -336,8 +336,8 @@
       -webkit-hyphens: none;
       word-break: normal;
       overflow-wrap: normal;
-      max-width: max-content;
-      width: auto;
+      max-width: 42ch;
+      width: 42ch;
       line-height: 1.6;
       word-spacing: normal;
     }
