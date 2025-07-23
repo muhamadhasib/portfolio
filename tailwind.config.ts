@@ -8,6 +8,7 @@ export default {
       'xs': '320px',
       'sm': '640px',
       'md': '768px',
+      'fold': '853px',
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1400px',
@@ -15,6 +16,7 @@ export default {
       '4xl': '1920px',
       // Custom breakpoints for ultra-wide and specific device types
       'ultra': '2560px',
+      'zenbook-fold': { 'raw': '(min-width: 853px) and (max-width: 1280px)' },
       'tablet-portrait': { 'raw': '(min-width: 768px) and (max-width: 1024px) and (orientation: portrait)' },
       'tablet-landscape': { 'raw': '(min-width: 1024px) and (max-width: 1366px) and (orientation: landscape)' },
       'mobile-landscape': { 'raw': '(max-width: 767px) and (orientation: landscape)' },

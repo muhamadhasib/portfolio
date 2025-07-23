@@ -79,11 +79,11 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
           }}
         />
         
-        {/* Desktop Layout */}
-        <div className="desktop-grid overflow-visible">
+        {/* Desktop Layout - Foldable Optimized */}
+        <div className="desktop-grid overflow-visible foldable-container">
           {/* Left Side: Text Content */}
           <motion.div
-            className="space-y-6 overflow-visible text-content-isolated"
+            className="space-y-6 fold:space-y-4 overflow-visible text-content-isolated foldable-spacing"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
