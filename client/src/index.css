@@ -333,10 +333,14 @@
     .bio-full-width {
       text-align: justify;
       text-justify: inter-word;
-      hyphens: auto;
-      -webkit-hyphens: auto;
+      hyphens: none;
+      -webkit-hyphens: none;
+      word-break: keep-all;
+      overflow-wrap: normal;
       max-width: none;
       width: 100%;
+      line-height: 1.6;
+      word-spacing: 0.05em;
     }
   }
 
@@ -345,6 +349,10 @@
     .bio-full-width {
       max-width: 600px;
       text-align: left;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      hyphens: none;
+      -webkit-hyphens: none;
     }
   }
 
@@ -354,6 +362,10 @@
       text-align: justify;
       text-justify: inter-word;
       max-width: 100%;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
     }
   }
 
