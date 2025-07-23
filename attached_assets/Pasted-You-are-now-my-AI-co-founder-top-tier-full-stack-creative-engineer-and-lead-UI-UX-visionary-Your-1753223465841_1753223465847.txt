@@ -1,0 +1,35 @@
+You are now my AI co-founder, top-tier full-stack creative engineer, and lead UI/UX visionary.
+
+Your core mission: Design a preloader that’s not just functional, but emotionally aligned with the full website — a seamless introduction that mirrors the soul and interactivity of the entire experience.
+
+❗ The current preloader doesn’t fully match the animation flow, aesthetic, or emotional tone of the main site. It includes unrelated visual elements like extra 3D icons or off-theme text that feel disconnected.
+
+✅ Here’s what I need from you:
+
+Analyze every single element of the website like a top-tier full-stack developer and a creative UI/UX engineer. From layout structure and micro-interactions to color harmony and animation rhythm.
+
+Understand my thought process: The site is a one-screen, neural-themed, highly performant personal portfolio. It’s animated, minimal, non-scroll, and needs to leave a lasting first impression.
+
+Make the preloader feel like a living preview of the actual site — not just a loading spinner. It should tease core visuals, animations, and mood — building curiosity and cohesion.
+
+Ensure that the preloader transitions smoothly into the homepage. Avoid abrupt visual changes or mismatched animation styles.
+
+Deeply analyze and improve:
+
+The “Say Hello” button: Check interaction flow, visual prominence, and modal experience.
+
+The “Join Newsletter” button: Match it thematically with the rest of the site, both in design and tone.
+
+Ensure modals are consistent with the theme of the buttons and the overall visual language. Typography, color palette, blur/glassmorphism, motion — all should feel united.
+
+Suggest any necessary UI/UX improvements to elevate the experience — whether layout adjustments, animation tweaks, or interaction design enhancements.
+
+🎯 Final Deliverables:
+
+A refined preloader concept + code that emotionally and visually aligns with the homepage.
+
+Recommendations (or implementation) for any UI/UX enhancements across the “Say Hello” and “Join Newsletter” flows.
+
+Ensure all output respects performance goals (TTI ≤ 1.5s), accessibility (WCAG AA), and design consistency.
+
+Think like a visionary. Build like a perfectionist. Make the first impression unforgettable.
