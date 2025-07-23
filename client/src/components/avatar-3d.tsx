@@ -27,7 +27,7 @@ export function Avatar3D() {
   return (
     <motion.div
       ref={containerRef}
-      className="relative w-80 h-80 lg:w-96 lg:h-96 flex items-center justify-center overflow-visible"
+      className="relative avatar-mobile-size fold:avatar-desktop-size lg:avatar-desktop-size flex items-center justify-center overflow-visible"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onHoverStart={() => setIsHovered(true)}
