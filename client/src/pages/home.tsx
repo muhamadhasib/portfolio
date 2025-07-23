@@ -58,54 +58,76 @@ export default function Home() {
         {isLoading && <LoadingAnimation />}
       </AnimatePresence>
       
-      <motion.div 
+      <motion.main 
         className="main-layout"
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoaded ? 1 : 0 }}
         transition={{ duration: 0.6 }}
+        role="main"
+        aria-label="Muhammad Hasib AI Engineer Portfolio"
       >
-      {/* Neural Background */}
-      <NeuralBackground />
+        {/* Skip to main content for accessibility */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-blue-600 text-white px-4 py-2 rounded-md"
+          tabIndex={1}
+        >
+          Skip to main content
+        </a>
 
-      {/* Navigation */}
-      <Navbar onNewsletterClick={() => setIsNewsletterModalOpen(true)} />
+        {/* Neural Background - Decorative */}
+        <div role="img" aria-label="Neural network background animation" className="fixed inset-0 pointer-events-none">
+          <NeuralBackground />
+        </div>
 
-      {/* Hero Section */}
-      <HeroSection onContactClick={() => setIsContactModalOpen(true)} />
+        {/* Header Navigation */}
+        <header role="banner" aria-label="Site navigation">
+          <Navbar onNewsletterClick={() => setIsNewsletterModalOpen(true)} />
+        </header>
 
-      {/* Contact Modal */}
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-      />
+        {/* Main Content Section */}
+        <section 
+          id="main-content"
+          role="main" 
+          aria-labelledby="hero-heading"
+          className="relative z-10"
+        >
+          <HeroSection onContactClick={() => setIsContactModalOpen(true)} />
+        </section>
 
-      {/* Newsletter Modal */}
-      <NewsletterModal
-        isOpen={isNewsletterModalOpen}
-        onClose={() => setIsNewsletterModalOpen(false)}
-      />
+        {/* Contact Modal */}
+        <ContactModal
+          isOpen={isContactModalOpen}
+          onClose={() => setIsContactModalOpen(false)}
+        />
 
-      {/* Structured Data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Muhammad Hasib",
-            "jobTitle": ["AI Engineer", "Machine Learning Engineer"],
-            "description": "AI & ML Engineer passionate about building intelligent systems and exploring human-machine creativity",
-            "url": "https://muhammadhasib.dev",
-            "sameAs": [
-              "https://github.com/muhammadhasib",
-              "https://linkedin.com/in/muhammadhasib",
-              "https://twitter.com/muhammadhasib"
-            ],
-            "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Problem Solving"],
-          })
-        }}
-      />
-      </motion.div>
+        {/* Newsletter Modal */}
+        <NewsletterModal
+          isOpen={isNewsletterModalOpen}
+          onClose={() => setIsNewsletterModalOpen(false)}
+        />
+
+        {/* Structured Data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Muhammad Hasib",
+              "jobTitle": ["AI Engineer", "Machine Learning Engineer"],
+              "description": "AI & ML Engineer passionate about building intelligent systems and exploring human-machine creativity",
+              "url": "https://muhammadhasib.dev",
+              "sameAs": [
+                "https://github.com/muhamadhasib",
+                "https://linkedin.com/in/muhammad-hasib",
+                "https://twitter.com/hasib_me_"
+              ],
+              "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Problem Solving"]
+            })
+          }}
+        />
+      </motion.main>
     </>
   );
 }

@@ -38,8 +38,32 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
   const bioText = `I'm Muhammad Hasib, an AI & ML Engineer passionate about building intelligent systems, solving complex problems, and exploring the edge of human–machine creativity. I engineer the future, one neural node at a time.`;
 
   return (
-    <div className="content-section overflow-visible">
+    <article className="content-section overflow-visible" role="article" aria-labelledby="hero-heading">
       <div className="content-width-limit max-container overflow-visible">
+        {/* Schema.org structured data for better SEO */}
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfilePage",
+              "mainEntity": {
+                "@type": "Person",
+                "name": "Muhammad Hasib",
+                "jobTitle": "AI & ML Engineer",
+                "description": bioText,
+                "url": "https://muhammadhasib.dev",
+                "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Neural Networks", "Deep Learning"],
+                "sameAs": [
+                  "https://github.com/muhamadhasib",
+                  "https://linkedin.com/in/muhammad-hasib",
+                  "https://twitter.com/hasib_me_"
+                ]
+              }
+            })
+          }}
+        />
+        
         {/* Desktop Layout */}
         <div className="desktop-grid overflow-visible">
           {/* Left Side: Text Content */}
@@ -81,14 +105,22 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
             {/* Name and Animated Roles */}
             <div className="space-y-[clamp(0.75rem,1.5vw,1.25rem)]">
               <motion.h1
+                id="hero-heading"
                 className="responsive-name font-bold gradient-text name-single-line"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
+                role="heading"
+                aria-level={1}
               >
                 Muhammad Hasib
               </motion.h1>
-              <div className="responsive-role font-medium text-gray-700 dark:text-gray-300 typing-container-isolated">
+              <div 
+                className="responsive-role font-medium text-gray-700 dark:text-gray-300 typing-container-isolated"
+                role="heading"
+                aria-level={2}
+                aria-label="Professional roles"
+              >
                 <Typewriter texts={roles} className="typing-animation-isolated" />
               </div>
             </div>
@@ -100,6 +132,8 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               style={{ isolation: 'isolate', transform: 'translateZ(0)' }}
+              role="text"
+              aria-label="Professional bio and introduction"
             >
               {bioText}
             </motion.p>
@@ -112,6 +146,8 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
+              role="group"
+              aria-label="Contact and resume actions"
             >
               <Button
                 onClick={onContactClick}
@@ -253,6 +289,6 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
           </motion.div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

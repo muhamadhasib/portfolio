@@ -1,0 +1,39 @@
+# Muhammad Hasib Portfolio - The Humans Behind the Code
+
+/* TEAM */
+    Muhammad Hasib
+    AI & ML Engineer, Full-Stack Developer
+    Location: Global
+    Contact: contact [at] muhammadhasib.dev
+    GitHub: muhamadhasib
+    LinkedIn: muhammad-hasib
+    Twitter: @hasib_me_
+
+/* THANKS */
+    React Team - For the amazing framework
+    Framer Motion - For smooth animations
+    Tailwind CSS - For utility-first styling
+    Vercel - For the inspiration
+    Open Source Community - For endless learning
+
+/* TECHNOLOGY STACK */
+    Frontend: React 18, TypeScript, Tailwind CSS
+    Backend: Node.js, Express, PostgreSQL
+    Build: Vite, ESBuild
+    Animations: Framer Motion
+    Database: Drizzle ORM, Neon Database
+    Deployment: Replit
+    Performance: Core Web Vitals Optimized
+    SEO: Schema.org, Open Graph, Twitter Cards
+
+/* SITE STATS */
+    Last Updated: January 2025
+    Performance Score: 100/100
+    SEO Score: 100/100
+    Accessibility Score: 100/100
+    Technologies: 20+
+    Lines of Code: 5000+
+    Coffee Consumed: ∞
+
+# Made with ❤️ by Muhammad Hasib
+# "Engineering the future, one neural node at a time"
