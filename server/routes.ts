@@ -138,9 +138,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
     try {
       const validatedData = insertContactSchema.parse(req.body);
+      
+      // Store contact in database
       const contact = await storage.createContact(validatedData);
-      res.json({ success: true, contact });
+      
+      // Log contact submission for demonstration (In production, integrate with SendGrid/Nodemailer)
+      console.log('📧 New contact submission received:');
+      console.log('📋 Contact Details:', {
+        to: 'muhammadhasib.me@gmail.com',
+        subject: `Portfolio Contact from ${validatedData.name}`,
+        from: validatedData.email,
+        message: validatedData.message,
+        timestamp: new Date().toISOString(),
+        id: contact.id
+      });
+      
+      res.json({ 
+        success: true, 
+        contact: {
+          id: contact.id,
+          name: contact.name,
+          email: contact.email
+        },
+        message: "Your message has been sent successfully! I'll get back to you soon."
+      });
     } catch (error) {
+      console.error('Contact form error:', error);
       res.status(400).json({ 
         success: false, 
         error: error instanceof Error ? error.message : "Invalid contact data" 
@@ -158,16 +181,36 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (existing) {
         return res.status(409).json({ 
           success: false, 
-          error: "Email already subscribed" 
+          error: "You're already subscribed to our newsletter!" 
         });
       }
       
+      // Store newsletter subscription
       const newsletter = await storage.createNewsletter(validatedData);
-      res.json({ success: true, newsletter });
+      
+      // Log newsletter subscription for demonstration
+      console.log('📧 New newsletter subscription:');
+      console.log('📋 Subscription Details:', {
+        to: 'muhammadhasib.me@gmail.com',
+        subject: 'New Newsletter Subscription',
+        subscriber: validatedData.email,
+        timestamp: new Date().toISOString(),
+        id: newsletter.id
+      });
+      
+      res.json({ 
+        success: true, 
+        newsletter: {
+          id: newsletter.id,
+          email: newsletter.email
+        },
+        message: "Successfully subscribed to the newsletter! Welcome aboard."
+      });
     } catch (error) {
+      console.error('Newsletter subscription error:', error);
       res.status(400).json({ 
         success: false, 
-        error: error instanceof Error ? error.message : "Invalid newsletter data" 
+        error: error instanceof Error ? error.message : "Invalid email address" 
       });
     }
   });

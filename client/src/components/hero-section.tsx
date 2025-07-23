@@ -16,7 +16,15 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
   const isMobile = useIsMobile();
   const { trackEvent } = useAnalytics();
 
-  const roles = ["AI Engineer", "Machine Learning Engineer", "Problem Solver"];
+  const roles = [
+    "AI Engineer", 
+    "Machine Learning Engineer", 
+    "Computer Science Student",
+    "Python Developer",
+    "JavaScript Developer", 
+    "LeetCode Problem Solver",
+    "Innovation Enthusiast"
+  ];
 
   const handleResumeDownload = () => {
     trackEvent({
@@ -35,7 +43,7 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
     document.body.removeChild(link);
   };
 
-  const bioText = `I'm Muhammad Hasib, an AI & ML Engineer passionate about building intelligent systems, solving complex problems, and exploring the edge of human–machine creativity. I engineer the future, one neural node at a time.`;
+  const bioText = `I'm Muhammad Hasib, a Computer Science & Engineering student and passionate AI & ML Engineer. I architect intelligent systems with Python and JavaScript, solve complex algorithmic challenges on LeetCode, and push the boundaries of human-machine creativity. Driven by an insatiable curiosity for AI innovation, learning optimization, and engineering excellence, I craft tomorrow's neural networks today—one breakthrough at a time.`;
 
   return (
     <article className="content-section overflow-visible" role="article" aria-labelledby="hero-heading">
@@ -53,7 +61,18 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
                 "jobTitle": "AI & ML Engineer",
                 "description": bioText,
                 "url": "https://muhammadhasib.dev",
-                "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Neural Networks", "Deep Learning"],
+                "knowsAbout": [
+                  "Artificial Intelligence", 
+                  "Machine Learning", 
+                  "Neural Networks", 
+                  "Deep Learning",
+                  "Python Programming",
+                  "JavaScript Development",
+                  "Algorithm Design",
+                  "Computer Science",
+                  "LeetCode Problem Solving",
+                  "Software Engineering"
+                ],
                 "sameAs": [
                   "https://github.com/muhamadhasib",
                   "https://linkedin.com/in/muhammad-hasib",
