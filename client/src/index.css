@@ -163,10 +163,10 @@
   }
   
   .responsive-bio {
-    font-size: clamp(0.7rem, 1.6vw + 0.15rem, 1.25rem);
-    line-height: clamp(1.35, 0.3vw + 1.25, 1.7);
+    font-size: clamp(0.8rem, 1.8vw + 0.2rem, 1.35rem);
+    line-height: clamp(1.4, 0.35vw + 1.3, 1.75);
     font-weight: 400;
-    letter-spacing: clamp(0.005em, 0.002vw, 0.015em);
+    letter-spacing: clamp(0.008em, 0.003vw, 0.018em);
     word-break: normal;
     overflow-wrap: break-word;
   }
@@ -231,12 +231,20 @@
       margin-top: 1rem !important;
     }
 
-    /* Avatar size adjustment */
+    /* Avatar size adjustment for Zenbook Fold */
     .w-80 {
-      width: 16rem !important;
+      width: 14rem !important;
     }
     .h-80 {
-      height: 16rem !important;
+      height: 14rem !important;
+    }
+
+    /* Enhanced avatar responsiveness */
+    .avatar-container {
+      width: 220px !important;
+      height: 220px !important;
+      min-width: 220px !important;
+      max-width: 220px !important;
     }
   }
   
@@ -446,8 +454,8 @@
     .bio-full-width {
       max-width: 90%;
       width: 90%;
-      font-size: clamp(0.8rem, 0.55vw, 1.1rem);
-      line-height: 1.55;
+      font-size: clamp(0.85rem, 0.6vw, 1.15rem);
+      line-height: 1.6;
       padding: 0 1rem;
     }
   }
@@ -687,6 +695,88 @@
       0 20px 40px hsla(270, 85%, 60%, 0.4),
       0 10px 20px hsla(270, 85%, 60%, 0.2);
   }
+
+  /* GLOBAL AVATAR RESPONSIVENESS SYSTEM - OVERRIDES ALL SCALING */
+  
+  /* Ultra-Wide Desktop Avatar */
+  @media (min-width: 1920px) {
+    .avatar-container {
+      width: clamp(280px, 25vw, 360px) !important;
+      height: clamp(280px, 25vw, 360px) !important;
+      min-width: 280px !important;
+      max-width: 360px !important;
+      transform: none !important;
+    }
+  }
+
+  /* Large Desktop Avatar */
+  @media (min-width: 1400px) and (max-width: 1919px) {
+    .avatar-container {
+      width: clamp(260px, 22vw, 320px) !important;
+      height: clamp(260px, 22vw, 320px) !important;
+      min-width: 260px !important;
+      max-width: 320px !important;
+      transform: none !important;
+    }
+  }
+
+  /* Standard Desktop Avatar */
+  @media (min-width: 1024px) and (max-width: 1399px) {
+    .avatar-container {
+      width: clamp(240px, 20vw, 300px) !important;
+      height: clamp(240px, 20vw, 300px) !important;
+      min-width: 240px !important;
+      max-width: 300px !important;
+      transform: none !important;
+    }
+  }
+
+  /* Foldable & Tablet Portrait Avatar */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .avatar-container {
+      width: clamp(200px, 25vw, 280px) !important;
+      height: clamp(200px, 25vw, 280px) !important;
+      min-width: 200px !important;
+      max-width: 280px !important;
+      transform: none !important;
+      margin: 1rem auto !important;
+    }
+  }
+
+  /* Mobile Landscape Avatar */
+  @media (max-width: 767px) and (orientation: landscape) {
+    .avatar-container {
+      width: clamp(140px, 18vw, 180px) !important;
+      height: clamp(140px, 18vw, 180px) !important;
+      min-width: 140px !important;
+      max-width: 180px !important;
+      transform: none !important;
+    }
+  }
+
+  /* Mobile Portrait Avatar */
+  @media (max-width: 767px) and (orientation: portrait) {
+    .avatar-container {
+      width: clamp(180px, 40vw, 260px) !important;
+      height: clamp(180px, 40vw, 260px) !important;
+      min-width: 180px !important;
+      max-width: 260px !important;
+      transform: none !important;
+      margin: 1.5rem auto !important;
+    }
+  }
+
+  /* Extra Small Mobile Avatar */
+  @media (max-width: 374px) {
+    .avatar-container {
+      width: clamp(150px, 35vw, 200px) !important;
+      height: clamp(150px, 35vw, 200px) !important;
+      min-width: 150px !important;
+      max-width: 200px !important;
+      transform: none !important;
+      margin: 1rem auto !important;
+    }
+  }
   
   @keyframes gentle-pulse {
     0%, 100% { box-shadow: 0 0 0 0 hsla(188, 95%, 44%, 0.4); }
@@ -794,7 +884,12 @@
       gap: clamp(1.25rem, 3vw, 2rem);
     }
     
-    .avatar-container { transform: scale(clamp(0.65, 10vw, 0.85)); }
+    .avatar-container { 
+      width: clamp(200px, 22vw, 280px) !important;
+      height: clamp(200px, 22vw, 280px) !important;
+      min-width: 200px;
+      max-width: 280px;
+    }
     .responsive-role { justify-content: center; }
   }
   
@@ -815,7 +910,12 @@
     .mobile-layout > :first-child { order: 2; flex: 0 0 auto; }
     .mobile-layout > :last-child { order: 1; flex: 1; }
     
-    .avatar-container { transform: scale(clamp(0.5, 8vw, 0.7)); }
+    .avatar-container { 
+      width: clamp(180px, 18vw, 240px) !important;
+      height: clamp(180px, 18vw, 240px) !important;
+      min-width: 180px;
+      max-width: 240px;
+    }
     .responsive-role { justify-content: flex-start; }
     
     .content-section {
