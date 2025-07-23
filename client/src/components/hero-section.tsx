@@ -17,12 +17,8 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
   const { trackEvent } = useAnalytics();
 
   const roles = [
-    "AI Engineer", 
-    "Machine Learning Engineer", 
-    "Computer Science Student",
-    "Python Developer",
-    "JavaScript Developer", 
-    "LeetCode Problem Solver",
+    "Problem Solver",
+    "Software Engineer",
     "Innovation Enthusiast"
   ];
 
@@ -43,7 +39,7 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
     document.body.removeChild(link);
   };
 
-  const bioText = `I'm Muhammad Hasib, a Computer Science & Engineering student and passionate AI & ML Engineer. I architect intelligent systems with Python and JavaScript, solve complex algorithmic challenges on LeetCode, and push the boundaries of human-machine creativity. Driven by an insatiable curiosity for AI innovation, learning optimization, and engineering excellence, I craft tomorrow's neural networks today—one breakthrough at a time.`;
+  const bioText = `I'm a Computer Science & Engineering student and passionate AI & ML Engineer. I architect intelligent systems with Python and JavaScript, solve complex algorithmic challenges on LeetCode, and push the boundaries of human-machine creativity.`;
 
   return (
     <article className="content-section overflow-visible" role="article" aria-labelledby="hero-heading">
@@ -144,9 +140,9 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Bio */}
+            {/* Bio - Full Width on Large Screens */}
             <motion.p
-              className="responsive-bio text-gray-600 dark:text-gray-400 leading-relaxed max-w-lg text-justify-desktop bio-text-isolation"
+              className="responsive-bio text-gray-600 dark:text-gray-400 leading-relaxed bio-full-width text-justify-desktop bio-text-isolation"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}

@@ -322,6 +322,41 @@
     text-align: left;
   }
 
+  /* Bio text full width styling - spans edge to edge on large screens */
+  .bio-full-width {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* On large screens, bio spans same width as name heading */
+  @media (min-width: 1024px) {
+    .bio-full-width {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      max-width: none;
+      width: 100%;
+    }
+  }
+
+  /* On medium screens, maintain reasonable width */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .bio-full-width {
+      max-width: 600px;
+      text-align: left;
+    }
+  }
+
+  /* On mobile, center and justify for readability */
+  @media (max-width: 767px) {
+    .bio-full-width {
+      text-align: justify;
+      text-justify: inter-word;
+      max-width: 100%;
+    }
+  }
+
   @media (min-width: 768px) {
     .text-justify-desktop {
       text-align: justify;
