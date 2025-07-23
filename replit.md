@@ -16,7 +16,7 @@ This is a modern, 3D animated portfolio website for Muhammad Hasib, an AI & ML E
 ✓ **LEGENDARY README CREATION**: Crafted poetic, visionary README that positions portfolio as revolutionary neural architecture
 ✓ **UNIVERSAL JUSTIFIED BIO**: Bio text now uses justified alignment across all devices for optimal readability
 ✓ **COMPREHENSIVE RESPONSIVE DESIGN**: Bio adapts perfectly from mobile (575px) to ultra-wide (1200px+) screens
-✓ **OPTIMAL CHARACTER LIMITS**: 65ch on desktop, 60ch on laptop, 55ch on tablet, 100% on mobile for best reading experience
+✓ **OPTIMAL WIDTH CONSTRAINTS**: 80% width on large screens (1024px+), 55ch on tablet, 100% on mobile for best reading experience
 ✓ **PROFESSIONAL TEXT JUSTIFICATION**: Proper inter-word spacing with automatic hyphenation for clean text blocks
 ✓ **DEVICE-SPECIFIC OPTIMIZATION**: Tailored line heights and word spacing for each screen size category
 ✓ **PERFORMANCE OPTIMIZATION**: Maintained sub-1.5s TTI with enhanced form handling and database operations

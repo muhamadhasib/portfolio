@@ -336,7 +336,8 @@
   /* On extra large screens (desktop) */
   @media (min-width: 1200px) {
     .bio-full-width {
-      max-width: 65ch;
+      max-width: 80%;
+      width: 80%;
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
@@ -348,7 +349,8 @@
   /* On large screens (laptop) */
   @media (min-width: 1024px) and (max-width: 1199px) {
     .bio-full-width {
-      max-width: 60ch;
+      max-width: 80%;
+      width: 80%;
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
