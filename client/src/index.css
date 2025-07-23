@@ -322,25 +322,24 @@
     text-align: left;
   }
 
-  /* Bio text full width styling - spans edge to edge on large screens */
+  /* Bio text constrained to match name heading width */
   .bio-full-width {
     max-width: 100%;
-    width: 100%;
+    width: auto;
   }
 
-  /* On large screens, bio spans same width as name heading */
+  /* On large screens, bio matches name heading width with natural text flow */
   @media (min-width: 1024px) {
     .bio-full-width {
-      text-align: justify;
-      text-justify: inter-word;
+      text-align: left;
       hyphens: none;
       -webkit-hyphens: none;
-      word-break: keep-all;
+      word-break: normal;
       overflow-wrap: normal;
-      max-width: none;
-      width: 100%;
+      max-width: max-content;
+      width: auto;
       line-height: 1.6;
-      word-spacing: 0.05em;
+      word-spacing: normal;
     }
   }
 
@@ -349,7 +348,7 @@
     .bio-full-width {
       max-width: 600px;
       text-align: left;
-      word-break: keep-all;
+      word-break: normal;
       overflow-wrap: normal;
       hyphens: none;
       -webkit-hyphens: none;
@@ -362,7 +361,7 @@
       text-align: justify;
       text-justify: inter-word;
       max-width: 100%;
-      word-break: keep-all;
+      word-break: normal;
       overflow-wrap: break-word;
       hyphens: auto;
       -webkit-hyphens: auto;
