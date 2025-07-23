@@ -4,8 +4,7 @@ import { storage } from "./storage";
 import { insertContactSchema, insertNewsletterSchema, insertUserSchema } from "@shared/schema";
 import bcrypt from "bcryptjs";
 import session from "express-session";
-import connectPgSimple from "connect-pg-simple";
-import { pool } from "./db";
+import MemoryStore from "memorystore";
 
 // Authentication middleware
 const requireAuth = (req: any, res: any, next: any) => {
@@ -16,13 +15,12 @@ const requireAuth = (req: any, res: any, next: any) => {
 };
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Session configuration
-  const PgSession = connectPgSimple(session);
+  // Session configuration with memory store
+  const MemStore = MemoryStore(session);
   
   app.use(session({
-    store: new PgSession({
-      pool: pool,
-      tableName: 'session'
+    store: new MemStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
     }),
     secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production',
     resave: false,

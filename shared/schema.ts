@@ -1,45 +1,43 @@
-import { pgTable, text, serial, timestamp } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+// Base types for data models
+export interface User {
+  id: number;
+  username: string;
+  password: string;
+}
+
+export interface Contact {
+  id: number;
+  name: string;
+  email: string;
+  message: string;
+  createdAt: Date;
+}
+
+export interface Newsletter {
+  id: number;
+  email: string;
+  createdAt: Date;
+}
+
+// Zod schemas for validation
+export const insertUserSchema = z.object({
+  username: z.string().min(1, "Username is required"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
-export const contacts = pgTable("contacts", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  email: text("email").notNull(),
-  message: text("message").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
+export const insertContactSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(1, "Message is required"),
 });
 
-export const newsletters = pgTable("newsletters", {
-  id: serial("id").primaryKey(),
-  email: text("email").notNull().unique(),
-  createdAt: timestamp("created_at").defaultNow(),
+export const insertNewsletterSchema = z.object({
+  email: z.string().email("Invalid email address"),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
-
-export const insertContactSchema = createInsertSchema(contacts).omit({
-  id: true,
-  createdAt: true,
-});
-
-export const insertNewsletterSchema = createInsertSchema(newsletters).omit({
-  id: true,
-  createdAt: true,
-});
-
+// Type exports
 export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
 export type InsertContact = z.infer<typeof insertContactSchema>;
-export type Contact = typeof contacts.$inferSelect;
 export type InsertNewsletter = z.infer<typeof insertNewsletterSchema>;
-export type Newsletter = typeof newsletters.$inferSelect;
