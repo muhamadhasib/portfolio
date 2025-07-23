@@ -27,7 +27,7 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
     
     // Download the actual resume PDF
     const link = document.createElement('a');
-    link.href = '/Muhammad_Hasib_Resume.pdf';
+    link.href = '/assets/documents/Muhammad_Hasib_Resume.pdf';
     link.download = 'Muhammad_Hasib_Resume.pdf';
     link.target = '_blank';
     document.body.appendChild(link);

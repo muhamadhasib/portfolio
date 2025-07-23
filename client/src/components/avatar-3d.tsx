@@ -129,7 +129,7 @@ export function Avatar3D() {
             <motion.div 
               className="w-full h-full rounded-full bg-cover bg-center bg-no-repeat relative overflow-hidden"
               style={{
-                backgroundImage: `url("/profile.jpeg")`,
+                backgroundImage: `url("/assets/images/profile.jpeg")`,
               }}
               animate={{
                 backgroundSize: isHovered ? "110%" : "100%",

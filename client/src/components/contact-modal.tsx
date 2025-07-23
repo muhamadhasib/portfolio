@@ -84,26 +84,77 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={handleBackdropClick}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
         >
+          {/* Revolutionary Immersive Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-md"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-gradient-to-br from-violet-950/40 via-slate-900/50 to-cyan-950/40 backdrop-blur-xl"
+            initial={{ backdropFilter: "blur(0px)", opacity: 0 }}
+            animate={{ backdropFilter: "blur(24px)", opacity: 1 }}
+            exit={{ backdropFilter: "blur(0px)", opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            onClick={handleBackdropClick}
           />
-          
-          <motion.div
-            className="relative rounded-3xl p-8 w-full max-w-md bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 shadow-2xl"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          >
+
+          {/* Neural Network Overlay */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            {[...Array(15)].map((_, i) => (
+              <motion.div
+                key={`neural-${i}`}
+                className="absolute w-px h-12 bg-gradient-to-b from-violet-400/30 to-cyan-400/30"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  scaleY: [0, 1, 0],
+                  opacity: [0, 0.6, 0],
+                  rotate: Math.random() * 360,
+                }}
+                transition={{
+                  duration: 4 + Math.random() * 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Centered Modal Container */}
+          <div className="absolute inset-0 flex items-center justify-center p-4">
+            <motion.div
+              className="relative w-full max-w-lg"
+              initial={{ scale: 0.9, opacity: 0, y: 60 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 60 }}
+              transition={{ 
+                type: "spring",
+                stiffness: 280,
+                damping: 20,
+                duration: 0.6,
+                delay: 0.1
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Glass Card with Animated Border */}
+              <motion.div
+                className="relative bg-white/10 dark:bg-gray-900/20 backdrop-blur-2xl rounded-3xl border border-white/20 dark:border-gray-700/20 shadow-2xl overflow-hidden"
+                animate={{
+                  boxShadow: [
+                    "0 25px 50px -12px rgba(139, 92, 246, 0.25)",
+                    "0 25px 50px -12px rgba(6, 182, 212, 0.25)",
+                    "0 25px 50px -12px rgba(139, 92, 246, 0.25)",
+                  ]
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                {/* Content Container */}
+                <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-3xl p-8"
+                >
             <Button
               onClick={onClose}
               variant="ghost"
@@ -187,7 +238,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 )}
               </Button>
             </form>
-          </motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
